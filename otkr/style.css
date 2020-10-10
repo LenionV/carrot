@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Gabriola);
+@import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  box-sizing: border-box;
+}
+html * {
+  box-sizing: inherit;
+}
+
+*:before, *:after {
+  content: " ";
+}
+
+body {
+  overflow: hidden;
+    background: url(bg.jpg) no-repeat;
+    background-size: cover;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  color: #fff;
+    font-size: 20px;
+  font-family: 'Gabriola', sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.card {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -175px;
+  width: 350px;
+  height: 470px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all ease-in-out 1s;
+  transition: all ease-in-out 1s;
+}
+.card .page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+.card .cover {
+  z-index: 2;
+  -webkit-transform: rotateY(-20deg);
+          transform: rotateY(-20deg);
+  -webkit-transition: -webkit-transform ease-in-out 1.4s;
+  transition: -webkit-transform ease-in-out 1.4s;
+  transition: transform ease-in-out 1.4s;
+  transition: transform ease-in-out 1.4s, -webkit-transform ease-in-out 1.4s;
+  z-index: 5;
+}
+.card .cover .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #dd9445; */
+background: url(img.jpg) no-repeat;
+    background-size: cover;
+  z-index: 3;
+}
+.card .cover:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: skew(-8deg) rotateX(-10deg);
+          transform: skew(-8deg) rotateX(-10deg);
+  z-index: -1;
+}
+.card .cover button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+  background: transparent;
+  border: 3px solid #fff;
+  color: #fff;
+  font-size: 30px;
+  font-family: 'Gabriola', sans-serif;
+  padding: 0.2em 1em;
+}
+.card .cover button:focus {
+  outline: none;
+}
+.card .inside {
+  z-index: 1;
+  -webkit-transform: rotateY(-8deg);
+          transform: rotateY(-8deg);
+}
+.card .inside .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #27292a; */
+  background: url(fon.jpg) no-repeat;
+    background-size: cover;
+  z-index: 3;
+}
+.card .inside:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: skew(-8deg) rotateX(-10deg);
+          transform: skew(-8deg) rotateX(-10deg);
+  z-index: -1;
+}
+.card.open {
+  margin-left: 0;
+}
+.card.open .cover {
+  -webkit-transform: rotateY(-175deg);
+          transform: rotateY(-175deg);
+}
+
+.t-text {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+.b-text {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+
+.hb {
+  margin-top: 80px;
+  background:#fff;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Gabriola', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  position: relative;
+}
+.hb::after, .hb::before {
+  content: attr(data-title);
+  text-shadow: 8px -8px 0px #27292a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: depth 6s -1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+          animation: depth 6s -1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+.hb::after {
+  background: radial-gradient(top, ellipse cover, #f86464 0%, #0affc8 25%, #ee7cfa 60%, #faa61d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: translate3d(0px, 16px, 0px) scale(0.9);
+          transform: translate3d(0px, 16px, 0px) scale(0.9);
+  z-index: -1;
+}
+.hb::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(#375db1), color-stop(30%, #fdfb00), to(#ef017c));
+  background: linear-gradient(top, #375db1 0%, #fdfb00 30%, #ef017c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: translate3d(0px, 32px, 0px) scale(0.8);
+          transform: translate3d(0px, 32px, 0px) scale(0.8);
+  z-index: -2;
+}
+
+@-webkit-keyframes depth {
+  50% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@keyframes depth {
+  50% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+  }
+}
